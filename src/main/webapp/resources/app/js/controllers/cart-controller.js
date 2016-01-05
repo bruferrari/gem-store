@@ -1,10 +1,9 @@
 angular.module('gemStore').controller('CartController', function($scope, cartResource, cartRegister, $route, $location) {
 	
-//	$scope.itens = [];
 	$scope.item = {};
 	$scope.message = '';
 	$scope.cart = {};
-	$scope.cartItensQty = 0;
+//	$scope.cartItensQty = 0;
 	
 	cartResource.get(function(cart) {
 		$scope.cart = cart;
@@ -12,10 +11,10 @@ angular.module('gemStore').controller('CartController', function($scope, cartRes
 		console.log(error);
 	});
 	
-	$scope.$watch('cart.itens', function() {
-		console.log('changed!');
-		$scope.cartItensQty = $scope.cart.itens.length;
-	});
+//	$scope.$watch('cart.itens', function() {
+////		console.log('changed!');
+//		$scope.cartItensQty = $scope.cart.itens.length;
+//	});
 	
 //	cartResource.query(function(itens) {
 //		$scope.itens = itens;
@@ -50,9 +49,7 @@ angular.module('gemStore').controller('CartController', function($scope, cartRes
 			var productIndex = $scope.cart.itens.indexOf(item);
 			$scope.cart.itens.splice(productIndex, 1);
 			$scope.message = 'Product ' + item.product.prodName + ' was removed from your cart'
-//			$route.reload();	
-			console.log($scope.cart.itens.length);
-			console.log($scope.cartItensQty);
+			$route.reload();	
 		}, function(error) {
 			console.log(error);
 			$scope.message = 'An error occured!';

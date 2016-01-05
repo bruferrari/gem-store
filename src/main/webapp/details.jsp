@@ -21,8 +21,10 @@
 				<p>$ {{product.price | number:2}}</p>
 				<p>Available: {{product.quantity}}</p>
 				<p>
-					<button class="btn btn-default" ng-controller="CartController" 
-						ng-click="add(product)">Add to cart</button>
+					<button class="btn btn-success" ng-controller="CartController" 
+						ng-click="add(product)" aria-label="Left Align">
+							<span class="glyphicon glyphicon-shopping-cart" aria-hidden="true"></span>Add to cart
+						</button>
 					<button class="btn btn-default" disabled="true">Add to Wish</button>
 				</p>
 			</div>

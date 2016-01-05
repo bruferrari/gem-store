@@ -28,9 +28,24 @@ var app = angular.module('gemStore', ['appDirectives','appService', 'ngRoute'])
 			controller: 'ProductsController'
 		});
 		
+		$routeProvider.when('/login', {
+			templateUrl: 'login.jsp',
+			controller: 'LoginController'
+		});
+		
 		$routeProvider.when('/cart', {
 			templateUrl: 'cart.jsp',
 			controller: 'CartController'
+		});
+		
+		$routeProvider.when('/user/new', {
+			templateUrl: 'newUser.jsp',
+			controller: 'UserController'
+		});
+		
+		$routeProvider.when('/user/manage', {
+			templateUrl: 'usersManager.jsp',
+			controller: 'UsersController'
 		});
 		
 		$routeProvider.otherwise({redirectTo: '/products'});

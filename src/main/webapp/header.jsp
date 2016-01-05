@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
+<%@ taglib uri="http://www.springframework.org/security/tags" prefix="security" %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -24,24 +25,30 @@
 			<div class="collapse navbar-collapse"
 				id="bs-example-navbar-collapse-1">
 				<ul class="nav navbar-nav">
-					<li><a ng-href="/gemStore/#/product/add">New Product</a></li>
-					<li><a ng-href="/gemStore/#/product/manage">List Products</a></li>
+					<li><a ng-href="#">Menu</a></li>
 				</ul>
 				<ul class="nav navbar-nav navbar-right">
 					<li>
 						<!-- <shopping-cart-button ng-controller="CartController" bind="cart.itens.length"></shopping-cart-button> -->
-						<a ng-href="#/cart" ng-controller="CartController" class="glyphicon glyphicon-shopping-cart btn-lg"><span class="badge" data-ng-bind="cartItensQty"></span></a>
+						<a ng-href="#/cart" ng-controller="CartController" class="glyphicon glyphicon-shopping-cart btn-lg"><span class="badge" data-ng-bind="cart.itens.length"></span></a>
 					</li>
-					<li class="dropdown"><a href="" class="dropdown-toggle"
+					
+					<li>
+						<a ng-hide="authenticated" ng-href="/gemStore/login">Login</a>
+					</li>
+					
+					<li class="dropdown"><a ng-controller="LoginController" ng-show="authenticated" href="" class="dropdown-toggle"
 						data-toggle="dropdown" role="button" aria-haspopup="true"
-						aria-expanded="false">User <span class="caret"></span></a>
+						aria-expanded="false">{{authentication.name}} <span class="caret"></span></a>
 						<ul class="dropdown-menu">
-							<li><a href="#">Action</a></li>
-							<li><a href="#">Another action</a></li>
-							<li><a href="#">Something else here</a></li>
+							<li><a ng-href="/gemStore/#/product/add">New Product</a></li>
+							<li><a ng-href="/gemStore/#/product/manage">List Products</a></li>
+							<li><a ng-href="/gemStore/#/user/new">Register new user</a></li>
+							<li><a ng-href="/gemStore/#/user/manage">Manage users</a></li>
 							<li role="separator" class="divider"></li>
-							<li><a href="#">Separated link</a></li>
+							<li><a ng-controller="LoginController" href="" ng-click="logout()">Logout</a></li>
 						</ul></li>
+					
 				</ul>
 			</div>
 			<!-- /.navbar-collapse -->

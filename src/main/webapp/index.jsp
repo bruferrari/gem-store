@@ -21,6 +21,9 @@
 <script src="<c:url value="/resources/app/js/controllers/products-controller.js" />"></script>
 <script src="<c:url value="/resources/app/js/controllers/product-controller.js" />"></script>
 <script src="<c:url value="/resources/app/js/controllers/cart-controller.js" />"></script>
+<script src="<c:url value="/resources/app/js/controllers/login-controller.js" />"></script>
+<script src="<c:url value="/resources/app/js/controllers/users-controller.js" />"></script>
+<script src="<c:url value="/resources/app/js/controllers/user-controller.js" />"></script>
 <script src="<c:url value="/resources/app/js/directives/app-directives.js" />"></script>
 
 <!-- <base href="/gemStore/"></base> -->

@@ -3,6 +3,8 @@ package com.ferrarib.gemStore.controller;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.cache.annotation.CacheEvict;
+import org.springframework.cache.annotation.Cacheable;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -17,13 +19,14 @@ import com.ferrarib.gemStore.model.Product;
 import com.ferrarib.gemStore.service.ProductService;
 
 @RestController
-@RequestMapping("/products")
+@RequestMapping("/api/products")
 public class ProductController {
 	
 	@Autowired
 	private ProductService service;
 
 	@RequestMapping(method=RequestMethod.GET, produces="application/json")
+	@Cacheable(value="homeProducts")
 	public List<Product> list() {
 		return service.list();
 	}
@@ -34,6 +37,7 @@ public class ProductController {
 	}
 	
 	@RequestMapping(method=RequestMethod.POST, consumes="application/json")
+	@CacheEvict(value="homeProducts", allEntries=true)
 	public ResponseEntity<?> add(@RequestBody Product product) {
 		service.add(product);
 		

@@ -1,5 +1,10 @@
 package com.ferrarib.gemStore.conf;
 
+import java.util.concurrent.TimeUnit;
+
+import org.springframework.cache.CacheManager;
+import org.springframework.cache.annotation.EnableCaching;
+import org.springframework.cache.guava.GuavaCacheManager;
 import org.springframework.context.MessageSource;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.ComponentScan;
@@ -14,10 +19,12 @@ import com.ferrarib.gemStore.controller.ProductController;
 import com.ferrarib.gemStore.dao.ProductDAO;
 import com.ferrarib.gemStore.model.ShoppingCart;
 import com.ferrarib.gemStore.service.ProductService;
+import com.google.common.cache.CacheBuilder;
 
 @EnableWebMvc
 @ComponentScan(basePackageClasses={ProductController.class, ProductDAO.class, ProductService.class,
 		ShoppingCart.class})
+@EnableCaching
 public class AppWebConfiguration extends WebMvcConfigurerAdapter {
 
 	@Bean
@@ -47,5 +54,18 @@ public class AppWebConfiguration extends WebMvcConfigurerAdapter {
 	@Override
 	public void configureDefaultServletHandling(DefaultServletHandlerConfigurer configurer) {
 		configurer.enable();
+	}
+	
+	@Bean
+	public CacheManager cacheManager() {
+		
+		CacheBuilder<Object, Object> builder = CacheBuilder.newBuilder()
+				.maximumSize(100)
+				.expireAfterAccess(5, TimeUnit.MINUTES);
+		GuavaCacheManager manager = new GuavaCacheManager();
+		manager.setCacheBuilder(builder);
+		
+		return manager;
+		
 	}
 }
