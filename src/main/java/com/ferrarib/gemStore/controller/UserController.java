@@ -13,8 +13,8 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
 
-import com.ferrarib.gemStore.log.UserService;
 import com.ferrarib.gemStore.model.User;
+import com.ferrarib.gemStore.service.UserService;
 
 @RestController
 @RequestMapping("/api/users")
