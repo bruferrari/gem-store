@@ -1,4 +1,4 @@
-package com.ferrarib.gemStore.service;
+package com.ferrarib.gemStore.log;
 
 import java.util.List;
 

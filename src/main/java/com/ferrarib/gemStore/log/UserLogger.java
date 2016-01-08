@@ -1,4 +1,4 @@
-package com.ferrarib.gemStore.service;
+package com.ferrarib.gemStore.log;
 
 import org.apache.log4j.Logger;
 import org.springframework.stereotype.Component;

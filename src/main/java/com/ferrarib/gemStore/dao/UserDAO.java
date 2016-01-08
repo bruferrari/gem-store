@@ -11,8 +11,8 @@ import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.stereotype.Repository;
 
+import com.ferrarib.gemStore.log.UserLogger;
 import com.ferrarib.gemStore.model.User;
-import com.ferrarib.gemStore.service.UserLogger;
 
 @Repository
 public class UserDAO implements UserDetailsService {
