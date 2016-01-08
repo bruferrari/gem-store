@@ -10,6 +10,7 @@ import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.stereotype.Repository;
 
+import com.ferrarib.gemStore.model.Role;
 import com.ferrarib.gemStore.model.User;
 
 @Repository
@@ -26,7 +27,10 @@ public class UserDAO implements UserDetailsService {
 		if(user == null) {
 			throw new UsernameNotFoundException("User with email " + email + " not found.");
 		}
+		System.out.println("user: " + user.getEmail());
 		
+		System.out.println("roles: ");
+		user.getRoles().forEach(r -> System.out.println(r.getName()));
 		return user;
 	}
 	

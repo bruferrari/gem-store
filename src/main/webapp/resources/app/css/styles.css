@@ -1,0 +1,57 @@
+body {
+	background-color: #F7F6F9;
+	margin-top: 100px;
+}
+
+html, body {
+    height: 100%;
+    margin: 0;
+}
+
+#wrap {
+    padding: 100px;
+    min-height: -webkit-calc(100% - 100px);     /* Chrome */
+    min-height: -moz-calc(100% - 100px);     /* Firefox */
+    min-height: calc(100% - 100px);     /* native */
+}
+
+.navbar {
+	background-color: transparent;
+	background: rgba(0,0,0,0.8);
+	border-color: transparent;
+}
+
+.navbar li a {
+	height: 80px;
+	line-height: 40px;
+}
+
+.navbar-brand {
+	line-height: 40px;
+}
+
+.navbar li a glyphicon glyphicon-log-in {
+	line-height: 100px;
+}
+
+.footer {
+	height: 80px;
+	background-color: #000;
+	background: rgba(0,0,0,0.8);
+	border-color: transparent;
+}
+
+.footer p {
+	padding-top: 20px;
+}
+
+.footer {
+    position: relative;
+    clear:both;
+}
+
+.search {
+	margin-bottom: 20px;
+	margin-top: 20px;
+	font-size: 20px;
+}

@@ -27,12 +27,13 @@
 <script src="<c:url value="/resources/app/js/directives/app-directives.js" />"></script>
 
 <!-- <base href="/gemStore/"></base> -->
+</head>
 
 <body>
-	<div class="container" style="margin-top: 100px">
+	<div class="container" id="wrap">
 		<ng-view></ng-view>
 	</div>
 </body>
 
-</head>
+<%@ include file="footer.jsp" %>
 </html>

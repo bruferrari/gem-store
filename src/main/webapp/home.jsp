@@ -8,9 +8,9 @@
 </head>
 <body>
 
-	<div class="row" style="margin-bottom: 20px">
+	<div class="row">
 		<input type="search" ng-model="filter" ng-model-options="{debounce: 500}"
-			 class="form-control" placeholder="Search for products">
+			 class="form-control search" placeholder="Search for products">
 	</div>
 
 	<div class="row" >
@@ -24,6 +24,26 @@
 			</div>
 		</div>
 	</div>
+	
+	<nav>
+  <ul class="pagination">
+    <li>
+      <a href="#" aria-label="Previous">
+        <span aria-hidden="true">&laquo;</span>
+      </a>
+    </li>
+    <li><a href="#">1</a></li>
+    <li><a href="#">2</a></li>
+    <li><a href="#">3</a></li>
+    <li><a href="#">4</a></li>
+    <li><a href="#">5</a></li>
+    <li>
+      <a href="#" aria-label="Next">
+        <span aria-hidden="true">&raquo;</span>
+      </a>
+    </li>
+  </ul>
+</nav>
 	
 </body>
 </html>

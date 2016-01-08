@@ -18,16 +18,16 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
 	@Override
 	protected void configure(HttpSecurity http) throws Exception {
 		http.csrf().disable()
-		.formLogin().and()
 		.authorizeRequests()
 			.antMatchers(HttpMethod.GET, "/api/user").authenticated()
-			.antMatchers(HttpMethod.DELETE, "/api/products/**").authenticated()
-			.antMatchers(HttpMethod.DELETE, "/api/users/**").authenticated()
-			.antMatchers(HttpMethod.GET, "/api/users").authenticated()
-			.antMatchers(HttpMethod.POST, "/api/products").authenticated()
-			.antMatchers("/productManager.jsp").authenticated()
-			.antMatchers("/newProduct.jsp").authenticated()
-			.anyRequest().permitAll();
+			.antMatchers(HttpMethod.DELETE, "/api/products/**").hasRole("ADMIN")
+			.antMatchers(HttpMethod.DELETE, "/api/users/**").hasRole("ADMIN")
+			.antMatchers(HttpMethod.GET, "/api/users").hasRole("ADMIN")
+			.antMatchers(HttpMethod.POST, "/api/products").hasRole("ADMIN")
+			.antMatchers("/productManager.jsp").hasRole("ADMIN")
+			.antMatchers("/newProduct.jsp").hasRole("ADMIN")
+			.anyRequest().permitAll()
+			.and().formLogin();
 	}
 	
 	@Override
