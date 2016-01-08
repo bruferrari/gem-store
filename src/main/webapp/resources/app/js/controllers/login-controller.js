@@ -14,6 +14,7 @@ angular.module('gemStore').controller('LoginController', function($rootScope, $s
 				$rootScope.authenticated = false;
 			}
 			callback && callback();
+			console.log(auth.principal.roles[0].name);
 		}).error(function() {
 			$rootScope.authenticated = false;
 			callback && callback();

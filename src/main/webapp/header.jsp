@@ -40,12 +40,23 @@
 						data-toggle="dropdown" role="button" aria-haspopup="true"
 						aria-expanded="false">{{authentication.principal.name}} <span class="caret"></span></a>
 						<ul class="dropdown-menu">
+							<li><a ng-href="#">User Menu 1</a></li>
+							<li role="separator" class="divider"></li>
+							<li><a ng-href="#">User Menu 2</a></li>
+							<li><a ng-href="#">User Menu 3</a></li>
+						</ul></li>
+						
+						<li class="dropdown"><a ng-controller="LoginController" href="" class="dropdown-toggle"
+						data-toggle="dropdown" role="button" aria-haspopup="true"
+						aria-expanded="false" ng-show="authenticated && authentication.principal.roles[0].name == 'ROLE_ADMIN'">Menu <span class="caret"></span></a>
+						<ul class="dropdown-menu">
 							<li><a ng-href="/gemStore/#/product/add">New Product</a></li>
 							<li><a ng-href="/gemStore/#/product/manage">List Products</a></li>
 							<li role="separator" class="divider"></li>
 							<li><a ng-href="/gemStore/#/user/new">Register new user</a></li>
 							<li><a ng-href="/gemStore/#/user/manage">Manage users</a></li>
 						</ul></li>
+					
 						
 					<li>
 						<a ng-controller="LoginController" ng-show="authenticated" ng-click="logout()">
